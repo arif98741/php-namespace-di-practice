@@ -11,5 +11,9 @@
             "email": "arif98741@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "xenon/bkash-php": "^1.0",
+        "xenon/nagad-api": "v1.9.2.3",
+        "xenon/paystation": "^1.0"
+    }
 }
