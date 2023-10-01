@@ -1,17 +1,48 @@
 <?php
+// At start of script
+$time_start = microtime(true);
 
-use App\DependentClass\Java;
-use App\DependentClass\Php;
-use App\ObjectClass;
-use App\Program;
+// Anywhere else in the script
+echo 'Total execution time in seconds: ' . (microtime(true) - $time_start);
 
-require_once 'vendor/autoload.php';
+/*$array = array(
+    array(1, 2),
+    array(3, 4),
+    array(5, 6)
+);
 
-$javaProgram = new Program(new Java());
-$phpProgram = new Program(new Php());
+$newArray = array();
+foreach ($array as $subarray) {
+    foreach ($subarray as $index => $value) {
+        $newArray[$index][] = $value;
+    }
+}
+echo '<pre>';
+print_r($newArray);*/
 
 
-$object = new ObjectClass($javaProgram, $phpProgram);
-$object->javaMethod();
-$object->phpMethod();
+
+
+
+
+$array = array(
+    array(1, 2),
+    array(3, 4),
+    array(5, 6)
+);
+
+// Transpose the array
+$transposedArray = array_map(null, ...$array);
+
+// Output array
+$outputArray = array_map(static function ($row) {
+    return array_values($row);
+}, $transposedArray);
+
+// Print the output array
+echo '<pre>';
+print_r($outputArray);
+
+
+
 
